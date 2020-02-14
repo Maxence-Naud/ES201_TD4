@@ -36,3 +36,9 @@ Puis réactiver le dossier .bashrc crée avec :
 
 ### Q2)
 
+Pour blowfish, la part des entiers est également non négligeable (32.62%). (suite voir correction page 75)
+
+
+### Q3)
+
+
