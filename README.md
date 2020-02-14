@@ -28,7 +28,7 @@ Puis réactiver le dossier .bashrc crée avec :
 |------|------|-------|---------------|-------------|-----------------|----------------|------|
 |  %   | 24.13| 10.34 |     1.06      |    14.69    |      49.77      |      0.00      | 0.00 |
 
-`sim-profile bf.ss input_small.asc`
+```sim-profile bf.ss input_small.asc```
 
 | type | load | store | uncond branch | cond branch | int computation | fp computation | trap |
 |------|------|-------|---------------|-------------|-----------------|----------------|------|
@@ -36,9 +36,11 @@ Puis réactiver le dossier .bashrc crée avec :
 
 ### Q2)
 
+Pour Djikstra, 
 Pour blowfish, la part des entiers est également non négligeable (32.62%). (suite voir correction page 75)
-
 
 ### Q3)
 
+P2 -> SCA2-BCS
+P1 -> produit de polynomes (p.74)
 
