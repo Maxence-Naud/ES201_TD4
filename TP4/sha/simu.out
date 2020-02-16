@@ -1,0 +1,220 @@
+sim-profile: SimpleScalar/PISA Tool Set version 3.0 of August, 2003.
+Copyright (c) 1994-2003 by Todd M. Austin, Ph.D. and SimpleScalar, LLC.
+All Rights Reserved. This version of SimpleScalar is licensed for academic
+non-commercial use.  No portion of this work may be used by any commercial
+entity, or for any commercial purpose, without the prior written permission
+of SimpleScalar, LLC (info@simplescalar.com).
+
+sim: command line: /usr/ensta/pack/simplescalar-3v0d/simplesim-3.0/sim-profile -iclass -iprof -redir:sim simu.out sha input_small.asc 
+
+sim: simulation started @ Mon Dec 12 23:10:25 2016, options follow:
+
+sim-profile: This simulator implements a functional simulator with
+profiling support.  Run with the `-h' flag to see profiling options
+available.
+
+# -config                     # load configuration from a file
+# -dumpconfig                 # dump configuration to a file
+# -h                    false # print help message    
+# -v                    false # verbose operation     
+# -d                    false # enable debug message  
+# -i                    false # start in Dlite debugger
+-seed                       1 # random number generator seed (0 for timer seed)
+# -q                    false # initialize and terminate immediately
+# -chkpt               <null> # restore EIO trace execution from <fname>
+# -redir:sim         simu.out # redirect simulator output to file (non-interactive only)
+# -redir:prog          <null> # redirect simulated program output to file
+-nice                       0 # simulator scheduling priority
+-max:inst                   0 # maximum number of inst's to execute
+-all                    false # enable all profile options
+-iclass                  true # enable instruction class profiling
+-iprof                   true # enable instruction profiling
+-brprof                 false # enable branch instruction profiling
+-amprof                 false # enable address mode profiling
+-segprof                false # enable load/store address segment profiling
+-tsymprof               false # enable text symbol profiling
+-taddrprof              false # enable text address profiling
+-dsymprof               false # enable data symbol profiling
+-internal               false # include compiler-internal symbols during symbol profiling
+# -pcstat              <null> # profile stat(s) against text addr's (mult uses ok)
+
+sim: ** starting functional simulation **
+
+sim: ** simulation statistics **
+sim_num_insn               14770864 # total number of instructions executed
+sim_num_refs                3668060 # total number of loads and stores executed
+sim_elapsed_time                  2 # total simulation time in seconds
+sim_inst_rate          7385432.0000 # simulation speed (in insts/sec)
+
+sim_inst_class_prof    # instruction class profile
+sim_inst_class_prof.array_size = 7
+sim_inst_class_prof.bucket_size = 1
+sim_inst_class_prof.count = 7
+sim_inst_class_prof.total = 14770863
+sim_inst_class_prof.imin = 0
+sim_inst_class_prof.imax = 7
+sim_inst_class_prof.average = 2110123.2857
+sim_inst_class_prof.std_dev = 3675252.1573
+sim_inst_class_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_class_prof.start_dist
+load                2469008  16.72 
+store               1199052   8.12 
+uncond branch         11020   0.07 
+cond branch          900137   6.09 
+int computation    10191620  69.00 
+fp computation            0   0.00 
+trap                     26   0.00 
+sim_inst_class_prof.end_dist
+
+
+sim_inst_prof          # instruction profile
+sim_inst_prof.array_size = 119
+sim_inst_prof.bucket_size = 1
+sim_inst_prof.count = 119
+sim_inst_prof.total = 14770863
+sim_inst_prof.imin = 0
+sim_inst_prof.imax = 119
+sim_inst_prof.average = 124124.8992
+sim_inst_prof.std_dev = 417452.9164
+sim_inst_prof.overflows = 0
+# pdf == prob dist fn, cdf == cumulative dist fn
+#          index      count    pdf 
+sim_inst_prof.start_dist
+nop                      20   0.00 
+j        J              429   0.00 
+jal      J             5230   0.04 
+jr       s             5322   0.04 
+jalr     d,s             39   0.00 
+beq      s,t,j        11256   0.08 
+bne      s,t,j       888794   6.02 
+blez     s,j             51   0.00 
+bgtz     s,j              1   0.00 
+bltz     s,j             11   0.00 
+bgez     s,j             24   0.00 
+bc1f     j                0   0.00 
+bc1t     j                0   0.00 
+lb       t,o(b)         110   0.00 
+lbu      t,o(b)      546038   3.70 
+lh       t,o(b)           0   0.00 
+lhu      t,o(b)          12   0.00 
+lw       t,o(b)     1922808  13.02 
+dlw      t,o(b)          40   0.00 
+l.s      T,o(b)           0   0.00 
+l.d      T,o(b)           0   0.00 
+lwl      t,o(b)           0   0.00 
+lwr      t,o(b)           0   0.00 
+sb       t,o(b)      623908   4.22 
+sh       t,o(b)           0   0.00 
+sw       t,o(b)      575104   3.89 
+dsw      t,o(b)          40   0.00 
+dsz      o(b)             0   0.00 
+s.s      T,o(b)           0   0.00 
+s.d      T,o(b)           0   0.00 
+swl      t,o(b)           0   0.00 
+swr      t,o(b)           0   0.00 
+lb       t,(b+d)          0   0.00 
+lbu      t,(b+d)          0   0.00 
+lh       t,(b+d)          0   0.00 
+lhu      t,(b+d)          0   0.00 
+lw       t,(b+d)          0   0.00 
+dlw      t,(b+d)          0   0.00 
+l.s      T,(b+d)          0   0.00 
+l.d      T,(b+d)          0   0.00 
+sb       t,(b+d)          0   0.00 
+sh       t,(b+d)          0   0.00 
+sw       t,(b+d)          0   0.00 
+dsw      t,(b+d)          0   0.00 
+dsz      (b+d)            0   0.00 
+s.s      T,(b+d)          0   0.00 
+s.d      T,(b+d)          0   0.00 
+l.s.r2   T,(b+d)          0   0.00 
+s.s.r2   T,(b+d)          0   0.00 
+lw.r2    t,(b+d)          0   0.00 
+sw.r2    t,(b+d)          0   0.00 
+add      d,s,t            0   0.00 
+addi     t,s,i            0   0.00 
+addu     d,s,t      2805586  18.99 
+addiu    t,s,i      2025326  13.71 
+sub      d,s,t            0   0.00 
+subu     d,s,t          513   0.00 
+mult     s,t            200   0.00 
+multu    s,t              0   0.00 
+div      s,t              0   0.00 
+divu     s,t            161   0.00 
+mfhi     d              160   0.00 
+mthi     s                0   0.00 
+mflo     d              361   0.00 
+mtlo     s                0   0.00 
+and      d,s,t       389909   2.64 
+andi     t,s,u         5630   0.04 
+or       d,s,t      1077233   7.29 
+ori      t,s,u        19709   0.13 
+xor      d,s,t      1325463   8.97 
+xori     t,s,u            7   0.00 
+nor      d,s,t        97481   0.66 
+sll      d,t,H       780107   5.28 
+sllv     d,t,s          272   0.00 
+srl      d,t,H       779944   5.28 
+srlv     d,t,s          200   0.00 
+sra      d,t,H           36   0.00 
+srav     d,t,s            2   0.00 
+slt      d,s,t        77969   0.53 
+slti     t,s,i       784598   5.31 
+sltu     d,s,t          643   0.00 
+sltiu    t,s,i          282   0.00 
+add.s    D,S,T            0   0.00 
+add.d    D,S,T            0   0.00 
+sub.s    D,S,T            0   0.00 
+sub.d    D,S,T            0   0.00 
+mul.s    D,S,T            0   0.00 
+mul.d    D,S,T            0   0.00 
+div.s    D,S,T            0   0.00 
+div.d    D,S,T            0   0.00 
+abs.s    D,S              0   0.00 
+abs.d    D,S              0   0.00 
+mov.s    D,S              0   0.00 
+mov.d    D,S              0   0.00 
+neg.s    D,S              0   0.00 
+neg.d    D,S              0   0.00 
+cvt.s.d  D,S              0   0.00 
+cvt.s.w  D,S              0   0.00 
+cvt.d.s  D,S              0   0.00 
+cvt.d.w  D,S              0   0.00 
+cvt.w.s  D,S              0   0.00 
+cvt.w.d  D,S              0   0.00 
+c.eq.s   S,T              0   0.00 
+c.eq.d   S,T              0   0.00 
+c.lt.s   S,T              0   0.00 
+c.lt.d   S,T              0   0.00 
+c.le.s   S,T              0   0.00 
+c.le.d   S,T              0   0.00 
+sqrt.s   D,S              0   0.00 
+sqrt.d   D,S              0   0.00 
+syscall                  26   0.00 
+break    B                0   0.00 
+lui      t,U          19808   0.13 
+mfc1     t,S              0   0.00 
+dmfc1    t,S              0   0.00 
+cfc1     t,S              0   0.00 
+mtc1     t,S              0   0.00 
+dmtc1    t,S              0   0.00 
+ctc1     t,S              0   0.00 
+sim_inst_prof.end_dist
+
+ld_text_base             0x00400000 # program text (code) segment base
+ld_text_size                  78928 # program text (code) size in bytes
+ld_data_base             0x10000000 # program initialized data segment base
+ld_data_size                   8368 # program init'ed `.data' and uninit'ed `.bss' size in bytes
+ld_stack_base            0x7fffc000 # program stack segment base (highest address in stack)
+ld_stack_size                 16384 # program initial stack size
+ld_prog_entry            0x00400140 # program entry point (initial PC)
+ld_environ_base          0x7fff8000 # program environment base address address
+ld_target_big_endian              0 # target executable endian-ness, non-zero if big endian
+mem.page_count                   39 # total number of pages allocated
+mem.page_mem                   156k # total size of memory pages allocated
+mem.ptab_misses                  39 # total first level page table misses
+mem.ptab_accesses          67534014 # total page table accesses
+mem.ptab_miss_rate           0.0000 # first level page table miss rate
+

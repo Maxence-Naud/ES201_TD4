@@ -1,0 +1,12 @@
+simu/simu_ruu16.out
+sim_cycle                   3575247 # total simulation time in cycles
+sim_CPI                      0.5134 # cycles per instruction
+simu/simu_ruu32.out
+sim_cycle                   3177342 # total simulation time in cycles
+sim_CPI                      0.4563 # cycles per instruction
+simu/simu_ruu64.out
+sim_cycle                   3176739 # total simulation time in cycles
+sim_CPI                      0.4562 # cycles per instruction
+simu/simu_ruu128.out
+sim_cycle                   3176559 # total simulation time in cycles
+sim_CPI                      0.4562 # cycles per instruction

@@ -1,0 +1,32 @@
+simu/simu_cache_C1_normale.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0367 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4188 # miss rate (i.e., misses/ref)
+simu/simu_cache_C2_normale.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0338 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4042 # miss rate (i.e., misses/ref)
+simu/simu_cache_C1_pointer.out
+il1.miss_rate                0.0001 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0413 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4413 # miss rate (i.e., misses/ref)
+simu/simu_cache_C2_pointer.out
+il1.miss_rate                0.0001 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0400 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4017 # miss rate (i.e., misses/ref)
+simu/simu_cache_C1_tempo.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0441 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4414 # miss rate (i.e., misses/ref)
+simu/simu_cache_C2_tempo.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0427 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4017 # miss rate (i.e., misses/ref)
+simu/simu_cache_C1_unrol.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0512 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4418 # miss rate (i.e., misses/ref)
+simu/simu_cache_C2_unrol.out
+il1.miss_rate                0.0000 # miss rate (i.e., misses/ref)
+dl1.miss_rate                0.0496 # miss rate (i.e., misses/ref)
+ul2.miss_rate                0.4018 # miss rate (i.e., misses/ref)

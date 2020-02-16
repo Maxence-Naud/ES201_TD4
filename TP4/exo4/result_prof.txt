@@ -1,0 +1,20 @@
+simu/simu_blowfish.out
+sim_inst_class_prof.start_dist
+load                 535765  21.32 
+store                179591   7.15 
+uncond branch         69213   2.75 
+cond branch          221923   8.83 
+int computation     1506493  59.95 
+fp computation            0   0.00 
+trap                     23   0.00 
+sim_inst_class_prof.end_dist
+simu/simu_dijkstra.out
+sim_inst_class_prof.start_dist
+load               14786558  26.94 
+store               4345374   7.92 
+uncond branch        437909   0.80 
+cond branch         9381140  17.09 
+int computation    25930461  47.25 
+fp computation            0   0.00 
+trap                    239   0.00 
+sim_inst_class_prof.end_dist
