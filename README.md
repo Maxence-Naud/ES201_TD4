@@ -86,17 +86,17 @@ Blowfish
 
 Instructions à tester :
 Dijkstra
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:2:64:2:l -cache:dl1 dl1:2:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:4:64:2:l -cache:dl1 dl1:4:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:8:64:2:l -cache:dl1 dl1:8:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:16:64:2:l -cache:dl1 dl1:16:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
 ```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
 
 Blowfish
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:2:64:2:l -cache:dl1 dl1:2:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:4:64:2:l -cache:dl1 dl1:4:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:8:64:2:l -cache:dl1 dl1:8:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:16:64:2:l -cache:dl1 dl1:16:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
 ```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
 
 
