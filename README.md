@@ -36,8 +36,11 @@ Puis réactiver le dossier .bashrc crée avec :
 
 ### Q2)
 
-Pour Djikstra, 
-Pour blowfish, la part des entiers est également non négligeable (32.62%). (suite voir correction page 75)
+Pour Djikstra, on constate que plus de 45% des instructions exécutées sont des instructions de calcul entier.
+En effet, l'algorithme utilise des boucles qui prennent du temps à être gérées. Ils faut donc chercher à optimiser le code au niveau de ces boucles. Il est également possible d'ajouter du parallélisme afin d'améliorer les performances de l'algorithme.
+
+
+Pour blowfish, la part des instructions de calcul entier est également non négligeable (32.62%). Les mêmes améliorations que celles évoquées précédemment peuvet don être utilsées.. Cependant, ce sont surtout les  (suite voir correction page 75)
 
 ### Q3)
 
