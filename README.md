@@ -22,7 +22,7 @@ Puis réactiver le dossier .bashrc crée avec :
 
 ### Q1)
 
-```sim-profiling -iclass djikstra_small input.dat```
+```sim-profile -iclass dijkstra_small.ss input.dat```
 
 | type | load | store | uncond branch | cond branch | int computation | fp computation | trap |
 |------|------|-------|---------------|-------------|-----------------|----------------|------|
@@ -45,4 +45,8 @@ Pour blowfish, la part des instructions de calcul entier est également non nég
 
 P2 -> SCA2-BCS
 P1 -> produit de polynomes (p.74)
+SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input_small.asc```
 
+| type | load | store | uncond branch | cond branch | int computation | fp computation | trap |
+|------|------|-------|---------------|-------------|-----------------|----------------|------|
+|  %   |16.72 | 8.12  |     0.08      |    6.10     |      68.99      |       0.0      | 0.0  |
