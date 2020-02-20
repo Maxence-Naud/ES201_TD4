@@ -60,3 +60,44 @@ Réglage A7 :
 
 Réglage A15 :
 ```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+
+
+### Q4)
+
+(LES RESULTATS SONT PEUT ETRE DEJA DANS RESULT_A7.TXT, VERIFIER QU'ON OBTIENT LA MEME CHOSE)
+
+Instructions à tester :
+Dijkstra
+```sim-cache -cache:il1 il1:1:32:2:l -cache:dl1 dl1:1:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:2:32:2:l -cache:dl1 dl1:2:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:4:32:2:l -cache:dl1 dl1:4:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:8:32:2:l -cache:dl1 dl1:8:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:16:32:2:l -cache:dl1 dl1:16:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
+
+Blowfish
+```sim-cache -cache:il1 il1:1:32:2:l -cache:dl1 dl1:1:32:2:l  -cache:dl2 ul2:512:32:8:l bf.ss```
+```sim-cache -cache:il1 il1:2:32:2:l -cache:dl1 dl1:2:32:2:l  -cache:dl2 ul2:512:32:8:l bf.ss```
+```sim-cache -cache:il1 il1:4:32:2:l -cache:dl1 dl1:4:32:2:l  -cache:dl2 ul2:512:32:8:l bf.ss```
+```sim-cache -cache:il1 il1:8:32:2:l -cache:dl1 dl1:8:32:2:l  -cache:dl2 ul2:512:32:8:l bf.ss```
+```sim-cache -cache:il1 il1:16:32:2:l -cache:dl1 dl1:16:32:2:l  -cache:dl2 ul2:512:32:8:l bf.ss```
+
+
+### Q4)
+
+Instructions à tester :
+Dijkstra
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
+
+Blowfish
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l bf.ss```
+
+
+
