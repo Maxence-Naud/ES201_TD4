@@ -51,6 +51,8 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 |------|------|-------|---------------|-------------|-----------------|----------------|------|
 |  %   |16.72 | 8.12  |     0.08      |    6.10     |      68.99      |       0.0      | 0.0  |
 
+#
+
 ## 2) Evaluation des performances
 
 ### Q4)
@@ -103,6 +105,7 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 **Analyse**:
 
 
+### Q8) Surfaces Totales du Cortex A7 et Cortex A15  + L1 (Taille variable) + L2
 
 
 
@@ -110,6 +113,10 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 
 
+### Q9) Efficacité surfacique de chaque processeur
+
+
+#
 
 ## 4) Éfficacité Énergétique
 
