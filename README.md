@@ -69,6 +69,9 @@ Réglage A15 :
 ```-cache:il1 il1:16:64:2:l -cache:dl1 dl1:16:64:2:l -cache:dl2 ul2:512:64:16:l -bpred 2lev -bpred:btb 256 4 -fetch:mplat 15 -fetch:ifqsize 8 -decode:width 4 -issue:width 8 -commit:width 4 -ruu:size 16 -lsq:size 16 -res:ialu 5 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss input_small.asc```
 
 
+#
+
+## 3. Efficacité surfacique
 
 ### Q6) Paramètres de cache par défaut
 
@@ -77,4 +80,36 @@ Réglage A15 :
 * **Taille de bloc**: 64 bytes
 * **Associativité**:  1
 * **Technologie**: 0.000032 nm
+
+
+### Q7) Surface des caches L1 (Tableau 14)
+
+#### Surface L1
+* **Cortex A7** (32Kb, 32b, 2):
+  *  I-L1: 0,121934 mm2
+  *  D-L1: 0,121934 mm2
+  *  **Total**: 0.243868
+* **Cortex A15** (32Kb, 64b, 2):
+  *  I-L1: 0,121934 mm2
+  *  D-L1: 0,121934 mm2
+  *  **Total**: 0.243868    
+*  **Surface des caches L1**: 0,487736
+
+#### Surface des coeurs
+* **Surface du Cortex A15 + Surface de ses caches L1**: 2 mm2
+* **Surface du Cortex A7 + Surface de ses caches L1**: 0.45 mm2
+* **Surface Totale des coeurs**: 2.45 mm2
+
+**Pourcentage de la surface totale**: 19.90%
+
+**Taille des coeurs  (hors caches L1)** 1.962264
+
+**Analyse**:
+
+
+
+
+
+
+
 
