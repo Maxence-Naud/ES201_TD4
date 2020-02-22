@@ -67,3 +67,14 @@ Réglage A15 :
 ```-cache:il1 il1:512:32:2:l -cache:dl1 dl1:512:32:2:l -cache:dl2 ul2:2048:32:8:l -bpred bimod -bpred:btb 256 4 -fetch:mplat 8 -fetch:ifqsize 4 -decode:width 2 -issue:width 4 -commit:width 2 -ruu:size 2 -lsq:size 8 -res:ialu 1 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss```
 
 ```-cache:il1 il1:16:64:2:l -cache:dl1 dl1:16:64:2:l -cache:dl2 ul2:512:64:16:l -bpred 2lev -bpred:btb 256 4 -fetch:mplat 15 -fetch:ifqsize 8 -decode:width 4 -issue:width 8 -commit:width 4 -ruu:size 16 -lsq:size 16 -res:ialu 5 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss input_small.asc```
+
+
+
+### Q6) Paramètres de cache par défaut
+
+	
+* **Taille de cache**: 134217728 bytes
+* **Taille de bloc**: 64 bytes
+* **Associativité**:  1
+* **Technologie**: 0.000032 nm
+
