@@ -55,19 +55,20 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 Notes pour commencer :
 Pour mesurer les perf, utiliser sim-cache (voir p 117) :
-Réglage A7 : 
+Réglage A7 :
 ```sim-cache -cache:il1 il1:32:32:2:l -cache:dl1 dl1:32:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
 
 Réglage A15 :
 ```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
 
-
 ### Q4)
 
 (LES RESULTATS SONT PEUT ETRE DEJA DANS RESULT_A7.TXT, VERIFIER QU'ON OBTIENT LA MEME CHOSE)
+```-cache:il1 il1:32:32:2:l(PAS SUR) -cache:dl1 dl1:32:32:2:l -cache:dl2 ul2:16000:32:8:l(PAS SUR) -bpred bimod -bpred:btb 256 4(PAS SUR) -fetch:mplat 8 -fetch:ifqsize 4 -decode:width 2 -issue:width 2 -commit:width 2 -ruu:size 2 -lsq:size 8 -res:ialu 1 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss```
+
 
 Instructions à tester :
-Dijkstra
+Dijkstra (NON c'est ce qui est au dessus qu'il faut faire)
 ```sim-cache -cache:il1 il1:1:32:2:l -cache:dl1 dl1:1:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
 ```sim-cache -cache:il1 il1:2:32:2:l -cache:dl1 dl1:2:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
 ```sim-cache -cache:il1 il1:4:32:2:l -cache:dl1 dl1:4:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
