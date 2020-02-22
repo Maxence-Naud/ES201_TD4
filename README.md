@@ -53,14 +53,6 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 ## 2) Evaluation des performances
 
-Notes pour commencer :
-Pour mesurer les perf, utiliser sim-cache (voir p 117) :
-Réglage A7 :
-```sim-cache -cache:il1 il1:32:32:2:l -cache:dl1 dl1:32:32:2:l  -cache:dl2 ul2:512:32:8:l dijkstra_small.ss```
-
-Réglage A15 :
-```sim-cache -cache:il1 il1:32:64:2:l -cache:dl1 dl1:32:64:2:l  -cache:dl2 ul2:512:64:16:l dijkstra_small.ss```
-
 ### Q4)
 
 (LES RESULTATS SONT PEUT ETRE DEJA DANS RESULT_A7.TXT, VERIFIER QU'ON OBTIENT LA MEME CHOSE)
