@@ -64,8 +64,9 @@ Réglage A15 :
 ### Q4)
 
 (LES RESULTATS SONT PEUT ETRE DEJA DANS RESULT_A7.TXT, VERIFIER QU'ON OBTIENT LA MEME CHOSE)
-```-cache:il1 il1:512:32:2:l -cache:dl1 dl1:512:32:2:l -cache:dl2 ul2:2048:32:8:l(PAS SUR) -bpred bimod -bpred:btb 256 4(PAS SUR) -fetch:mplat 8 -fetch:ifqsize 4 -decode:width 2 -issue:width 2 -commit:width 2 -ruu:size 2 -lsq:size 8 -res:ialu 1 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss```
+```-cache:il1 il1:512:32:2:l -cache:dl1 dl1:512:32:2:l -cache:dl2 ul2:2048:32:8:l -bpred bimod -bpred:btb 256 4 -fetch:mplat 8 -fetch:ifqsize 4 -decode:width 2 -issue:width 4 -commit:width 2 -ruu:size 2 -lsq:size 8 -res:ialu 1 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss```
 
+```-cache:il1 il1:16:64:2:l -cache:dl1 dl1:16:64:2:l -cache:dl2 ul2:512:64:16:l -bpred 2lev -bpred:btb 256 4 -fetch:mplat 15 -fetch:ifqsize 8 -decode:width 4 -issue:width 8 -commit:width 4 -ruu:size 16 -lsq:size 16 -res:ialu 5 -res:imult 1 -res:fpalu 1 -res:fpmult 1 bf.ss input_small.asc```
 
 Instructions à tester :
 Dijkstra (NON c'est ce qui est au dessus qu'il faut faire)
