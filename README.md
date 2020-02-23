@@ -71,7 +71,6 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 ## 3) Efficacité Surfacique
 
-
 ### Q6) Paramètres de cache par défaut
 	
 * **Taille de cache**: 134217728 bytes
@@ -81,37 +80,34 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 
 ### Q7) Surface des caches L1 (Tableau 14)
+[Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
 
-#### Surface L1
-* **Cortex A7** (32Kb, 32b, 2):
-  *  I-L1: 0,121934 mm2
-  *  D-L1: 0,121934 mm2
-  *  **Total**: 0.243868
-* **Cortex A15** (32Kb, 64b, 2):
-  *  I-L1: 0,121934 mm2
-  *  D-L1: 0,121934 mm2
-  *  **Total**: 0.243868    
-*  **Surface des caches L1**: 0,487736
 
-#### Surface des coeurs
-* **Surface du Cortex A15 + Surface de ses caches L1**: 2 mm2
-* **Surface du Cortex A7 + Surface de ses caches L1**: 0.45 mm2
-* **Surface Totale des coeurs**: 2.45 mm2
+| - |A15 |A7|
+|---|---|---|
+|Surface des caches L1| 0,09331925309  |  0,09296325931 |
+|Surface du Cortex|  2 | 0,45  |
+|Pourcentage de la surface occupé L1| 4,665962654  |  20,65850207 |
+|Taille du Cortex hors L1| 1,906680747  | 0,3570367407  |
 
-**Pourcentage de la surface totale**: 19.90%
-
-**Taille des coeurs  (hors caches L1)** 1.962264
 
 **Analyse**:
 
 
 ### Q8) Surfaces Totales du Cortex A7 et Cortex A15  + L1 (Taille variable) + L2
 
+[Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
 
 
-
-
-
+| Taille |- |Surfaces|
+|---|---|---|
+| - |A15 |A7|
+|1| -----------  |  0,8520783492 |
+|2|  2,349974136 | 0,8675189534  |
+|4| 2,336626858  |  0,8567088511 |
+|8| 2,357860259  | 0,8748594901  |
+|16| 2,361590406  |  0,891898881 |
+|32|  2,417846398 | 0,934599328  |
 
 ### Q9) Efficacité surfacique de chaque processeur
 
