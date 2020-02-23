@@ -80,7 +80,7 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 
 ### Q7) Surface des caches L1 (Tableau 14)
-[Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
+[Voir plus dans Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
 
 
 | - |A15 |A7|
@@ -96,7 +96,7 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 
 ### Q8) Surfaces Totales du Cortex A7 et Cortex A15  + L1 (Taille variable) + L2
 
-[Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
+[Voir plus dans Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
 
 
 | Taille |- |Surfaces|
@@ -107,11 +107,13 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 |4| 2,336626858  |  0,8567088511 |
 |8| 2,357860259  | 0,8748594901  |
 |16| 2,361590406  |  0,891898881 |
-|32|  2,417846398 | 0,934599328  |
+|32|  2,417846398 | ---------  |
+
+**TODO**: Faire un graphique
 
 ### Q9) Efficacité surfacique de chaque processeur
 
-
+[Voir plus dans Google Sheets Calculs](https://docs.google.com/spreadsheets/d/1iSC1euwixXFIzijyxn1Y2PYIEXpdgLjwwPu0X-UspfE/edit?usp=sharing)
 #
 
 ## 4) Éfficacité Énergétique
@@ -129,3 +131,4 @@ Cortex A15 : 500 mW (0.2 * 2500)
 ## 5) Architecture Système big.LITTLE
 
 ### Q12)
+
