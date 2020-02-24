@@ -1,0 +1,6 @@
+Setting OMP threads to 16
+Starting with row/col size=40
+A initialized
+B initialized
+Computing A*B with 16 threads
+Done

@@ -1,0 +1,6 @@
+Setting OMP threads to 1
+Starting with row/col size=40
+A initialized
+B initialized
+Computing A*B with 1 threads
+Done
