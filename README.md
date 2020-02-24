@@ -75,7 +75,7 @@ SHA 1 -> aller dans le répertoire sha, puis ```sim-profile -iclass sha.ss input
 	
 * **Taille de cache**: 134217728 bytes
 * **Taille de bloc**: 64 bytes
-* **Associativité**:  1
+* **Associativité**: 1
 * **Technologie**: 0.000032 nm
 
 
