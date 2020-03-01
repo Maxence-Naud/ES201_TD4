@@ -1,0 +1,169 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red127\green127\blue127;\red109\green111\blue3;\red179\green179\blue179;
+\red0\green0\blue0;\red15\green112\blue1;\red107\green0\blue109;\red0\green0\blue109;\red255\green255\blue51;
+\red107\green0\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c57046\c57047\c57046;\cssrgb\c50196\c50196\c0;\cssrgb\c75294\c75294\c75294;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c50196\c0;\cssrgb\c50196\c0\c50196;\cssrgb\c0\c0\c50196;\cssrgb\c99946\c98636\c25320;
+\cssrgb\c50196\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww38200\viewh21600\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 class\strokec4  \strokec5 DerivO3CPU(BaseCPU):\
+\strokec4     \strokec5 type\strokec4  \strokec5 =\strokec4  \strokec6 'DerivO3CPU'\strokec5 \
+\strokec4     \strokec5 cxx_header\strokec4  \strokec5 =\strokec4  \strokec6 'cpu/o3/deriv.hh'\strokec5 \
+\
+\strokec4     \strokec5 @classmethod\
+\strokec4     \strokec3 def\strokec4  \strokec5 memory_mode(cls):\
+\strokec4         \strokec3 return\strokec4  \strokec6 'timing'\strokec5 \
+\
+\strokec4     \strokec5 @classmethod\
+\strokec4     \strokec3 def\strokec4  \strokec5 require_caches(cls):\
+\strokec4         \strokec3 return\strokec4  \strokec7 True\strokec5 \
+\
+\strokec4     \strokec5 @classmethod\
+\strokec4     \strokec3 def\strokec4  \strokec5 support_take_over(cls):\
+\strokec4         \strokec3 return\strokec4  \strokec7 True\cf5 \strokec5 \
+\
+\cf4 \strokec4     \cf5 \strokec5 activity\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 0\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Initial\cf4 \strokec4  \cf6 \strokec6 count"\cf5 \strokec5 )
+\f1\b \
+\
+\cf4 \strokec4     \cf5 \strokec5 cachePorts\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 200\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Cache\cf4 \strokec4  \cf6 \strokec6 Ports"\cf5 \strokec5 )\
+\
+
+\f0\b0 \cf4 \strokec4     \cf5 \strokec5 decodeToFetchDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Decode\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 fetch\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 renameToFetchDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf4 \strokec4  \cf5 \strokec5 ,\cf6 \strokec6 "Rename\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 fetch\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )
+\f1\b \
+
+\f0\b0 \cf4 \strokec4     \cf5 \strokec5 iewToFetchDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 fetch\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                                    \cf6 \strokec6 "delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 commitToFetchDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Commit\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 fetch\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )
+\f1\b \
+\cf4 \strokec4     \cf5 \cb9 \strokec5 fetchWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned\cb1 (\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Fetch\cf4 \strokec4   \cf6 \strokec6 width"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 fetchBufferSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 64\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Fetch\cf4 \strokec4  \cf6 \strokec6 buffer\cf4 \strokec4  \cf6 \strokec6 size\cf4 \strokec4  \cf6 \strokec6 in\cf4 \strokec4  \cf6 \strokec6 bytes"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \cb9 \strokec5 fetchQueueSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned\cb1 (\cf8 \strokec8 32\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Fetch\cf4 \strokec4  \cf6 \strokec6 queue\cf4 \strokec4  \cf6 \strokec6 size\cf4 \strokec4  \cf6 \strokec6 in\cf4 \strokec4  \cf6 \strokec6 micro-ops\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                                     \cf6 \strokec6 "per-thread"\cf5 \strokec5 )\
+\
+\cf4 \strokec4     
+\f0\b0 \cf5 \strokec5 renameToDecodeDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Rename\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 decode\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 iewToDecodeDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 decode\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                                     \cf6 \strokec6 "delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 commitToDecodeDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Commit\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 decode\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 fetchToDecodeDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Fetch\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 decode\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )
+\f1\b \
+\cf4 \strokec4     \cf5 \strokec5 decodeWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Decode\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\
+\cf4 \strokec4     
+\f0\b0 \cf5 \strokec5 iewToRenameDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 rename\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                                     \cf6 \strokec6 "delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 commitToRenameDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Commit\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 rename\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 decodeToRenameDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Decode\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 rename\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )
+\f1\b \
+\cf4 \strokec4     \cf5 \strokec5 renameWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Rename\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\
+
+\f0\b0 \cf4 \strokec4     \cf5 \strokec5 commitToIEWDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Commit\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 renameToIEWDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 2\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Rename\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 issueToExecuteDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 execute\cf4 \strokec4  \cf6 \strokec6 delay\cf4 \strokec4  \cf6 \strokec6 (internal\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4               \cf6 \strokec6 "to\cf4 \strokec4  \cf6 \strokec6 the\cf4 \strokec4  \cf6 \strokec6 IEW\cf4 \strokec4  \cf6 \strokec6 stage)"\cf5 \strokec5 )
+\f1\b \
+\cf4 \strokec4     \cf5 \strokec5 dispatchWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Dispatch\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 issueWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 wbWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Writeback\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+
+\f0\b0 \cf2 \strokec4     \strokec5 fuPool\strokec4  \strokec5 =\strokec4  \strokec5 Param.FUPool(DefaultFUPool(),\strokec4  \strokec6 "Functional\strokec4  \strokec6 Unit\strokec4  \strokec6 pool"\strokec5 )\cf5 \
+\
+\cf4 \strokec4     \cf5 \strokec5 iewToCommitDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Issue/Execute/Writeback\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 commit\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                \cf6 \strokec6 "delay"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 renameToROBDelay\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Rename\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 reorder\cf4 \strokec4  \cf6 \strokec6 buffer\cf4 \strokec4  \cf6 \strokec6 delay"\cf5 \strokec5 )
+\f1\b \
+\cf4 \strokec4     \cf5 \strokec5 commitWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Commit\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 squashWidth\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 8\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Squash\cf4 \strokec4  \cf6 \strokec6 width"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 trapLatency\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 13\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Trap\cf4 \strokec4  \cf6 \strokec6 latency"\cf5 \strokec5 )\
+
+\f0\b0 \cf4 \strokec4     \cf5 \strokec5 fetchTrapLatency\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Cycles(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Fetch\cf4 \strokec4  \cf6 \strokec6 trap\cf4 \strokec4  \cf6 \strokec6 latency"\cf5 \strokec5 )
+\f1\b \
+
+\f0\b0 \
+
+\f1\b \cf4 \strokec4     \cf5 \strokec5 backComSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 5\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Time\cf4 \strokec4  \cf6 \strokec6 buffer\cf4 \strokec4  \cf6 \strokec6 size\cf4 \strokec4  \cf6 \strokec6 for\cf4 \strokec4  \cf6 \strokec6 backwards\cf4 \strokec4  \cf6 \strokec6 communication"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 forwardComSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 5\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Time\cf4 \strokec4  \cf6 \strokec6 buffer\cf4 \strokec4  \cf6 \strokec6 size\cf4 \strokec4  \cf6 \strokec6 for\cf4 \strokec4  \cf6 \strokec6 forward\cf4 \strokec4  \cf6 \strokec6 communication"\cf5 \strokec5 )\
+\
+\cf4 \strokec4     \cf5 \strokec5 LQEntries\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 32\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 load\cf4 \strokec4  \cf6 \strokec6 queue\cf4 \strokec4  \cf6 \strokec6 entries"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 SQEntries\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 32\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 store\cf4 \strokec4  \cf6 \strokec6 queue\cf4 \strokec4  \cf6 \strokec6 entries"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 LSQDepCheckShift\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 4\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 places\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 shift\cf4 \strokec4  \cf6 \strokec6 addr\cf4 \strokec4  \cf6 \strokec6 before\cf4 \strokec4  \cf6 \strokec6 check"\cf5 \strokec5 )\
+
+\f0\b0 \cf2 \strokec4     \strokec5 LSQCheckLoads\strokec4  \strokec5 =\strokec4  \strokec5 Param.Bool(\strokec7 True\strokec5 ,\
+\strokec4         \strokec6 "Should\strokec4  \strokec6 dependency\strokec4  \strokec6 violations\strokec4  \strokec6 be\strokec4  \strokec6 checked\strokec4  \strokec6 for\strokec4  \strokec6 loads\strokec4  \strokec6 &\strokec4  \strokec6 stores\strokec4  \strokec6 or\strokec4  \strokec6 just\strokec4  \strokec6 stores"\strokec5 )\cf5 \
+\cf4 \strokec4  
+\f1\b    \cf5 \strokec5 store_set_clear_period\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 250000\cf5 \strokec5 ,\
+\cf4 \strokec4             \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 load/store\cf4 \strokec4  \cf6 \strokec6 insts\cf4 \strokec4  \cf6 \strokec6 before\cf4 \strokec4  \cf6 \strokec6 the\cf4 \strokec4  \cf6 \strokec6 dep\cf4 \strokec4  \cf6 \strokec6 predictor\cf4 \strokec4  \cf6 \strokec6 should\cf4 \strokec4  \cf6 \strokec6 be\cf4 \strokec4  \cf6 \strokec6 invalidated"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 LFSTSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 1024\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Last\cf4 \strokec4  \cf6 \strokec6 fetched\cf4 \strokec4  \cf6 \strokec6 store\cf4 \strokec4  \cf6 \strokec6 table\cf4 \strokec4  \cf6 \strokec6 size"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 SSITSize\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 1024\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Store\cf4 \strokec4  \cf6 \strokec6 set\cf4 \strokec4  \cf6 \strokec6 ID\cf4 \strokec4  \cf6 \strokec6 table\cf4 \strokec4  \cf6 \strokec6 size"\cf5 \strokec5 )\
+\
+\cf4 \strokec4     \cf5 \strokec5 numRobs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 Reorder\cf4 \strokec4  \cf6 \strokec6 Buffers"\cf5 \strokec5 );\
+\
+\cf4 \strokec4     \cf5 \strokec5 numPhysIntRegs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 256\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 physical\cf4 \strokec4  \cf6 \strokec6 integer\cf4 \strokec4  \cf6 \strokec6 registers"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 numPhysFloatRegs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 256\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 physical\cf4 \strokec4  \cf6 \strokec6 floating\cf4 \strokec4  \cf6 \strokec6 point\cf4 \strokec4  \cf6 \strokec6 "\cf5 \strokec5 \
+\cf4 \strokec4                                       \cf6 \strokec6 "registers"\cf5 \strokec5 )\
+
+\f0\b0 \cf4 \strokec4     \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 most\cf4 \strokec4  \cf6 \strokec6 ISAs\cf4 \strokec4  \cf6 \strokec6 don't\cf4 \strokec4  \cf6 \strokec6 use\cf4 \strokec4  \cf6 \strokec6 condition-code\cf4 \strokec4  \cf6 \strokec6 regs,\cf4 \strokec4  \cf6 \strokec6 so\cf4 \strokec4  \cf6 \strokec6 default\cf4 \strokec4  \cf6 \strokec6 is\cf4 \strokec4  \cf6 \strokec6 0\cf5 \strokec5 \
+\cf4 \strokec4     \cf5 \strokec5 _defaultNumPhysCCRegs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf8 \strokec8 0\cf5 \strokec5 \
+\cf4 \strokec4     \cf3 \strokec3 if\cf4 \strokec4  \cf5 \strokec5 buildEnv[\cf6 \strokec6 'TARGET_ISA'\cf5 \strokec5 ]\cf4 \strokec4  \cf3 \strokec3 in\cf4 \strokec4  \cf5 \strokec5 (\cf6 \strokec6 'arm'\cf5 \strokec5 ,\cf6 \strokec6 'x86'\cf5 \strokec5 ):\
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 For\cf4 \strokec4  \cf6 \strokec6 x86,\cf4 \strokec4  \cf6 \strokec6 each\cf4 \strokec4  \cf6 \strokec6 CC\cf4 \strokec4  \cf6 \strokec6 reg\cf4 \strokec4  \cf6 \strokec6 is\cf4 \strokec4  \cf6 \strokec6 used\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 hold\cf4 \strokec4  \cf6 \strokec6 only\cf4 \strokec4  \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 subset\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 the\cf5 \strokec5 \
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 flags,\cf4 \strokec4  \cf6 \strokec6 so\cf4 \strokec4  \cf6 \strokec6 we\cf4 \strokec4  \cf6 \strokec6 need\cf4 \strokec4  \cf6 \strokec6 4-5\cf4 \strokec4  \cf6 \strokec6 times\cf4 \strokec4  \cf6 \strokec6 the\cf4 \strokec4  \cf6 \strokec6 number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 CC\cf4 \strokec4  \cf6 \strokec6 regs\cf4 \strokec4  \cf6 \strokec6 as\cf5 \strokec5 \
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 physical\cf4 \strokec4  \cf6 \strokec6 integer\cf4 \strokec4  \cf6 \strokec6 regs\cf4 \strokec4  \cf6 \strokec6 to\cf4 \strokec4  \cf6 \strokec6 be\cf4 \strokec4  \cf6 \strokec6 sure\cf4 \strokec4  \cf6 \strokec6 we\cf4 \strokec4  \cf6 \strokec6 don't\cf4 \strokec4  \cf6 \strokec6 run\cf4 \strokec4  \cf6 \strokec6 out.\cf4 \strokec4   \cf6 \strokec6 In\cf5 \strokec5 \
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 typical\cf4 \strokec4  \cf6 \strokec6 real\cf4 \strokec4  \cf6 \strokec6 machines,\cf4 \strokec4  \cf6 \strokec6 CC\cf4 \strokec4  \cf6 \strokec6 regs\cf4 \strokec4  \cf6 \strokec6 are\cf4 \strokec4  \cf6 \strokec6 not\cf4 \strokec4  \cf6 \strokec6 explicitly\cf4 \strokec4  \cf6 \strokec6 renamed\cf5 \strokec5 \
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 (it's\cf4 \strokec4  \cf6 \strokec6 a\cf4 \strokec4  \cf6 \strokec6 side\cf4 \strokec4  \cf6 \strokec6 effect\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 int\cf4 \strokec4  \cf6 \strokec6 reg\cf4 \strokec4  \cf6 \strokec6 renaming),\cf4 \strokec4  \cf6 \strokec6 so\cf4 \strokec4  \cf6 \strokec6 they\cf4 \strokec4  \cf6 \strokec6 should\cf5 \strokec5 \
+\cf4 \strokec4         \cf6 \strokec6 #\cf4 \strokec4  \cf6 \strokec6 never\cf4 \strokec4  \cf6 \strokec6 be\cf4 \strokec4  \cf6 \strokec6 the\cf4 \strokec4  \cf6 \strokec6 bottleneck\cf4 \strokec4  \cf6 \strokec6 here.\cf5 \strokec5 \
+\cf4 \strokec4         \cf5 \strokec5 _defaultNumPhysCCRegs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Self.numPhysIntRegs\cf4 \strokec4  \cf5 \strokec5 *\cf4 \strokec4  \cf8 \strokec8 5\cf5 \strokec5 \
+\cf4 \strokec4     
+\f1\b \cf5 \strokec5 numPhysCCRegs\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(_defaultNumPhysCCRegs,\
+\cf4 \strokec4                                    \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 physical\cf4 \strokec4  \cf6 \strokec6 cc\cf4 \strokec4  \cf6 \strokec6 registers"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 numIQEntries\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 64\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 instruction\cf4 \strokec4  \cf6 \strokec6 queue\cf4 \strokec4  \cf6 \strokec6 entries"\cf5 \strokec5 )\
+\cf4 \strokec4     \cf5 \strokec5 numROBEntries\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 192\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 reorder\cf4 \strokec4  \cf6 \strokec6 buffer\cf4 \strokec4  \cf6 \strokec6 entries"\cf5 \strokec5 )\
+\
+\cf4 \strokec4     \cf5 \strokec5 smtNumFetchingThreads\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Unsigned(\cf8 \strokec8 1\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "SMT\cf4 \strokec4  \cf6 \strokec6 Number\cf4 \strokec4  \cf6 \strokec6 of\cf4 \strokec4  \cf6 \strokec6 Fetching\cf4 \strokec4  \cf6 \strokec6 Threads"\cf5 \strokec5 )\
+
+\f0\b0 \cf2 \strokec4     \strokec5 smtFetchPolicy\strokec4  \strokec5 =\strokec4  \strokec5 Param.String(\strokec6 'SingleThread'\strokec5 ,\strokec4  \strokec6 "SMT\strokec4  \strokec6 Fetch\strokec4  \strokec6 policy"\strokec5 )\
+\strokec4     \strokec5 smtLSQPolicy\strokec4     \strokec5 =\strokec4  \strokec5 Param.String(\strokec6 'Partitioned'\strokec5 ,\strokec4  \strokec6 "SMT\strokec4  \strokec6 LSQ\strokec4  \strokec6 Sharing\strokec4  \strokec6 Policy"\strokec5 )\cf5 \
+\cf4 \strokec4     
+\f1\b \cf5 \strokec5 smtLSQThreshold\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Int(\cf8 \strokec8 100\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "SMT\cf4 \strokec4  \cf6 \strokec6 LSQ\cf4 \strokec4  \cf6 \strokec6 Threshold\cf4 \strokec4  \cf6 \strokec6 Sharing\cf4 \strokec4  \cf6 \strokec6 Parameter"\cf5 \strokec5 )
+\f0\b0 \
+\cf2 \strokec4     \strokec5 smtIQPolicy\strokec4     \strokec5 =\strokec4  \strokec5 Param.String(\strokec6 'Partitioned'\strokec5 ,\strokec4  \strokec6 "SMT\strokec4  \strokec6 IQ\strokec4  \strokec6 Sharing\strokec4  \strokec6 Policy"\strokec5 )\cf5 \
+\cf4 \strokec4     
+\f1\b \cf5 \strokec5 smtIQThreshold\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Int(\cf8 \strokec8 100\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "SMT\cf4 \strokec4  \cf6 \strokec6 IQ\cf4 \strokec4  \cf6 \strokec6 Threshold\cf4 \strokec4  \cf6 \strokec6 Sharing\cf4 \strokec4  \cf6 \strokec6 Parameter"\cf5 \strokec5 )
+\f0\b0 \
+\cf2 \strokec4     \strokec5 smtROBPolicy\strokec4    \strokec5 =\strokec4  \strokec5 Param.String(\strokec6 'Partitioned'\strokec5 ,\strokec4  \strokec6 "SMT\strokec4  \strokec6 ROB\strokec4  \strokec6 Sharing\strokec4  \strokec6 Policy"\strokec5 )\cf5 \
+\cf4 \strokec4     
+\f1\b \cf5 \strokec5 smtROBThreshold\cf4 \strokec4  \cf5 \strokec5 =\cf4 \strokec4  \cf5 \strokec5 Param.Int(\cf8 \strokec8 100\cf5 \strokec5 ,\cf4 \strokec4  \cf6 \strokec6 "SMT\cf4 \strokec4  \cf6 \strokec6 ROB\cf4 \strokec4  \cf6 \strokec6 Threshold\cf4 \strokec4  \cf6 \strokec6 Sharing\cf4 \strokec4  \cf6 \strokec6 Parameter"\cf5 \strokec5 )
+\f0\b0 \
+\cf2 \strokec4     \strokec5 smtCommitPolicy\strokec4  \strokec5 =\strokec4  \strokec5 Param.String(\strokec6 'RoundRobin'\strokec5 ,\strokec4  \strokec6 "SMT\strokec4  \strokec6 Commit\strokec4  \strokec6 Policy"\strokec5 )\
+\
+\strokec4     \strokec5 branchPred\strokec4  \strokec5 =\strokec4  \strokec5 Param.BranchPredictor(TournamentBP(numThreads\strokec4  \strokec5 =\
+\strokec4                                                        \strokec5 Parent.numThreads),\
+\strokec4                                        \strokec6 "Branch\strokec4  \strokec6 Predictor"\strokec5 )\
+\strokec4     \strokec5 needsTSO\strokec4  \strokec5 =\strokec4  \strokec5 Param.Bool(buildEnv[\strokec6 'TARGET_ISA'\strokec5 ]\strokec4  \strokec5 ==\strokec4  \strokec6 'x86'\strokec5 ,\
+\strokec4                           \strokec6 "Enable\strokec4  \strokec6 TSO\strokec4  \strokec6 Memory\strokec4  \strokec6 model"\strokec5 )\
+\
+\strokec4     \strokec3 def\strokec4  \strokec5 addCheckerCpu(\strokec10 self\strokec5 ):\
+\strokec4         \strokec3 if\strokec4  \strokec5 buildEnv[\strokec6 'TARGET_ISA'\strokec5 ]\strokec4  \strokec3 in\strokec4  \strokec5 [\strokec6 'arm'\strokec5 ]:\
+\strokec4             \strokec3 from\strokec4  \strokec6 ArmTLB\strokec4  \strokec3 import\strokec4  \strokec6 ArmTLB\strokec5 \
+\
+\strokec4             \strokec10 self\strokec5 .checker\strokec4  \strokec5 =\strokec4  \strokec5 O3Checker(workload=\strokec10 self\strokec5 .workload,\
+\strokec4                                      \strokec5 exitOnError=\strokec7 False\strokec5 ,\
+\strokec4                                      \strokec5 updateOnError=\strokec7 True\strokec5 ,\
+\strokec4                                      \strokec5 warnOnlyOnLoadError=\strokec7 True\strokec5 )\
+\strokec4             \strokec10 self\strokec5 .checker.itb\strokec4  \strokec5 =\strokec4  \strokec5 ArmTLB(size\strokec4  \strokec5 =\strokec4  \strokec10 self\strokec5 .itb.size)\
+\strokec4             \strokec10 self\strokec5 .checker.dtb\strokec4  \strokec5 =\strokec4  \strokec5 ArmTLB(size\strokec4  \strokec5 =\strokec4  \strokec10 self\strokec5 .dtb.size)\
+\strokec4             \strokec10 self\strokec5 .checker.cpu_id\strokec4  \strokec5 =\strokec4  \strokec10 self\strokec5 .cpu_id\
+\
+\strokec4         \strokec3 else\strokec5 :\
+\strokec4             \strokec3 print\strokec4  \strokec6 "ERROR:\strokec4  \strokec6 Checker\strokec4  \strokec6 only\strokec4  \strokec6 supported\strokec4  \strokec6 under\strokec4  \strokec6 ARM\strokec4  \strokec6 ISA!"\strokec5 \
+\strokec4             \strokec5 exit(\strokec8 1\strokec5 )\cf5 \
+\
+}
