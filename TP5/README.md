@@ -19,3 +19,7 @@ Autres paramètres potentiels :
 
 
 Q3 : /home/g/gbusnot/ES201/tools/TP5/gem5-stable/configs/common
+
+
+Q4 :
+$GEM5/build/ARM/gem5.fast $GEM5/configs/example/se.py --caches --cpu-type=<TYPE> -n <NBTHREAD> -c test_omp -o "<NBTHREAD> <TAILLEMATRICE>" 
