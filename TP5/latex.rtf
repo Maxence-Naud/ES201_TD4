@@ -1,0 +1,220 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[12pt, oneside, a4paper, french]\{article\}\
+\\usepackage[utf8]\{inputenc\}\
+\\usepackage[french]\{babel\}\
+\\usepackage\{graphicx\}\
+\\usepackage\{float\}\
+\\usepackage\{amsmath\}\
+\\usepackage\{amssymb\}\
+\\usepackage[a4paper, left=2.5cm, right=2.5cm, botton=2cm, top=3cm]\{geometry\}\
+\\usepackage\{fancyhdr\}\
+\\usepackage\{enumerate\}\
+\\usepackage\{tocbibind\}\
+\\usepackage\{setspace\}\
+\\usepackage\{pdfpages\}\
+\\usepackage\{hyperref\}\
+\
+\
+\\pagestyle\{fancy\}\
+\\lhead\{\}\
+\\rhead\{\}\
+\\cfoot\{\\thepage\}\
+\
+\\begin\{document\}\
+    \\begin\{titlepage\}\
+    \\vfill\
+		\
+		\\begin\{minipage\}\{0.1\\textwidth\}\
+			\\includegraphics[width=2.5cm]\{./ENSTA.jpeg\}\
+		\\end\{minipage\}\
+		\\hspace*\{0.9cm\}\
+        \\begin\{minipage\}\{1\\textwidth\}\
+        \
+			\\sc \{\\LARGE \\textbf\{ENSTA Paris\}\}\
+			\
+			\{\\large \'c9cole Nationale Sup\'e9rieure de Techniques Avanc\'e9es\}\
+		\\end\{minipage\}\
+		\\begin\{center\}\
+			\
+			\
+			\\vspace*\{5cm\}\
+			\
+			\{\\Huge \\textbf\{Rapport TP4 ES201 \}\}\
+			\\\\\
+			\\vspace*\{1cm\}	\
+			\
+			\\vspace*\{2.50cm\}\
+			\
+\
+			\{Kevin Alexandro SANCHEZ DIAZ \\\\\}\
+			\{Axel ROCHEL\\\\\}\
+			\{Javier MARTINEZ\\\\\}\
+			\{Maxence NAUD\\\\\}\
+			\{Marie KALOUGUINE\\\\\}\
+			\
+			\\vspace*\{3.5cm\}\
+			\{\\large \\bfseries \\today\}\
+			\\vfill\
+		\\end\{center\}\
+\
+    \\end\{titlepage\}\
+    \
+\\tableofcontents\
+\\newpage\
+\\onehalfspacing\
+\
+\
+\\section*\{Introduction\}\
+\
+\
+\\section\{Analyse th\'e9orique de coh\'e9rence de cache\}\
+\\subsection\{Q1\}\
+\
+\
+\\section\{Param\'e8tres de l'architecture multic\'9curs\}\
+\\subsection\{Q2\}\
+\
+    \\begin\{table\}[H]\
+        \\begin\{center\}\
+            \\begin\{tabular\}\{| c | c | c | c | c |\}\
+                \\hline\
+                decodeWidth & issueWidth  & commitWidth  & numPhysIntRegs & numPhysFloatRegs\\\\ \\hline\
+                8 & 8 & 8 & 256 & 256\\\\ \\hline\
+            \\end\{tabular\}\
+            \\caption\{Valeurs par d\'e9faut des param\'e8tres configurables\}\
+            \\label\{tab:prof_dijkstra\}\
+        \\end\{center\}\
+    \\end\{table\}\
+\
+\
+\
+\\subsection\{Q3\}\
+\
+    \\begin\{table\}[H]\
+        \\begin\{center\}\
+            \\begin\{tabular\}\{| c | c | c |\}\
+                \\hline\
+                associativit\'e9 & taille du cache & taille de la ligne \\\\ \\hline\
+                2 & 64 kB & 64 B \\\\ \\hline\
+            \\end\{tabular\}\
+            \\caption\{Valeurs par d\'e9faut du cache de donn\'e9es de niveau 1\}\
+            \\label\{tab:prof_dijkstra\}\
+        \\end\{center\}\
+    \\end\{table\}\
+    \
+    \\begin\{table\}[H]\
+        \\begin\{center\}\
+            \\begin\{tabular\}\{| c | c | c |\}\
+                \\hline\
+                associativit\'e9 & taille du cache & taille de la ligne \\\\ \\hline\
+                2 & 32 kB & 64 B \\\\ \\hline\
+            \\end\{tabular\}\
+            \\caption\{Valeurs par d\'e9faut du cache d'instructions de niveau 1\}\
+            \\label\{tab:prof_dijkstra\}\
+        \\end\{center\}\
+    \\end\{table\}\
+\
+    \\begin\{table\}[H]\
+        \\begin\{center\}\
+            \\begin\{tabular\}\{| c | c | c |\}\
+                \\hline\
+                associativit\'e9 & taille du cache & taille de la ligne \\\\ \\hline\
+                8 & 2 MB & 64 B \\\\ \\hline\
+            \\end\{tabular\}\
+            \\caption\{Valeurs par d\'e9faut du cache unifi\'e9 de niveau 2\}\
+            \\label\{tab:prof_dijkstra\}\
+        \\end\{center\}\
+    \\end\{table\}\
+\
+\
+\\section\{Architecture multic\'9curs avec des processeurs superscalaires in-order (Cortex A7)\}\
+\
+\
+\\subsection\{Q4\}\
+\
+Le parall\'e9lisme est effectu\'e9 en ex\'e9cutant une strat\'e9gie ma\'eetre esclave. Dans cette strat\'e9gie, le processeur ma\'eetre sera op\'e9rationnel tout au long de l'ex\'e9cution de l'algorithme. Ainsi, le processeur ex\'e9cutant toujours le plus grand nombre de cycle est le processeur principal ('fork'). Plus pr\'e9cis\'e9ment, le processeur principal ex\'e9cute un nombre de cycle \'e9gal au nombre total de cycle d'ex\'e9cution de l'application.\
+\
+\\subsection\{Q5\}\
+\
+    \\begin\{table\}[H]\
+            \\begin\{center\}\
+                \\begin\{tabular\}\{| c | c | c | c | c | c | c |\}\
+                    \\hline\
+                    & m=1 & m=2  & m=4  & m=8 & m=16 & m=32\\\\ \\hline\
+                    n=1 & 39473500 & 39585500 & 40215500 & 43650500 & 63858500 & 191035500\\\\ \\hline\
+                    n=2 & X & 41601500 & 42114500 & 44750500 & 57685500 & 132107500\\\\ \\hline\
+                    n=4 & X & X & 42604500 & 44804500 & 53851500& 101808500\\\\ \\hline\
+                    n=8 & X & X & X & 46335500 & 53848500 & segFault\\\\ \\hline\
+                    n=16 & X & X & X & X & segFault & segFault\\\\ \\hline\
+                    n=32 &  X & X & X & X & X & segFault\\\\ \\hline\
+                \\end\{tabular\}\
+                \\caption\{Nombre de cycles \'e0 l'ex\'e9cution en fonction de la taille du probl\'e8me et du nombre de threads\}\
+                \\label\{tab:prof_dijkstra\}\
+            \\end\{center\}\
+        \\end\{table\}\
+\
+        \\begin\{center\}\
+		    \\begin\{figure\}[!h]\
+		    \\centering\
+		    \\includegraphics[scale=0.8]\{gaph_matrice.png\}\
+		    \\caption\{Nombre de cycles pour le calcul de matrices\}\
+		    \\end\{figure\}\
+		\\end\{center\}\
+\
+\\subsection\{Q6\}\
+\
+speedup = $\\frac\{NbCycle\}\{NbCyclesS\'e9quentiel\}$\
+\
+    \\begin\{table\}[H]\
+            \\begin\{center\}\
+                \\begin\{tabular\}\{| c | c | c | c | c | c | c |\}\
+                    \\hline\
+                    & m=1 & m=2  & m=4  & m=8 & m=16 & m=32\\\\ \\hline\
+                    n=1 & 1 & 1 & 1 & 1 & 1 & 1\\\\ \\hline\
+                    n=2 & X & 0,95154 & 0,954909 & 0,975419 & 1,10701 & 1,44606\\\\ \\hline\
+                    n=4 & X & X & 0,943926 & 0,974244 & 1,18583 & 1,87642\\\\ \\hline\
+                    n=8 & X & X & X & 0,942053 & 1,18589 & ?\\\\ \\hline\
+                    n=16 & X & X & X & X & ? & ?\\\\ \\hline\
+                    n=32 &  X & X & X & X & X & ?\\\\ \\hline\
+                \\end\{tabular\}\
+                \\caption\{Speedup en fonction de la taille du probl\'e8me et du nombre de threads\}\
+                \\label\{tab:prof_dijkstra\}\
+            \\end\{center\}\
+        \\end\{table\}\
+\
+\\subsection\{Q7\}\
+\
+\\subsection\{Q8\}\
+\
+\
+\\section\{Architecture multic\'9curs avec des processeurs superscalaires out-of-order(Cortex A15)\}\
+\
+\\subsection\{Q9\}\
+\
+\\subsection\{Q10\}\
+\
+\\subsection\{Q11\}\
+\
+\\subsection\{Q12\}\
+\
+\
+\\section\{Configuration CMP la plus efficace\}\
+\
+\\subsection\{Q13\}\
+\
+\
+\\section\{Facultatif\}\
+\
+\\subsection\{Q14\}\
+\
+\\subsection*\{Conclusion\}\
+\
+\
+\\end\{document\}\
+}

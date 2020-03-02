@@ -22,4 +22,11 @@ Q3 : /home/g/gbusnot/ES201/tools/TP5/gem5-stable/configs/common
 
 
 Q4 :
-$GEM5/build/ARM/gem5.fast $GEM5/configs/example/se.py --caches --cpu-type=<TYPE> -n <NBTHREAD> -c test_omp -o "<NBTHREAD> <TAILLEMATRICE>" 
+$GEM5/build/ARM/gem5.fast $GEM5/configs/example/se.py --caches --cpu-type=<TYPE> -n <NBTHREAD> -c test_omp -o "<NBTHREAD> <TAILLEMATRICE>"
+
+
+Q5 :
+Valeurs intéressantes à regarder :
+sim_insts (pour Q7)
+system.cpu0.numCycles (ou system.cpu.numCycles si un seul thread)
+ 
