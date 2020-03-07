@@ -1,0 +1,1 @@
+sim_insts                                      561201                       # Number of instructions simulated
