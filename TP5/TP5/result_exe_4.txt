@@ -1,90 +1,84 @@
 m = 1
 1 threads
 Done
-system.cpu.numCycles                            65431                       # number of cpu cycles simulated
+system.cpu.numCycles                            64572                       # number of cpu cycles simulated
 sim_insts                                       14870                       # Number of instructions simulated
 m = 2
 1 threads
 Done
-system.cpu.numCycles                            65571                       # number of cpu cycles simulated
+system.cpu.numCycles                            64772                       # number of cpu cycles simulated
 sim_insts                                       15130                       # Number of instructions simulated
 2 threads
 Done
-system.cpu0.numCycles                           69523                       # number of cpu cycles simulated
-sim_insts                                       26967                       # Number of instructions simulated
+system.cpu0.numCycles                           68352                       # number of cpu cycles simulated
+sim_insts                                       34402                       # Number of instructions simulated
 m = 4
 1 threads
 Done
-system.cpu.numCycles                            67491                       # number of cpu cycles simulated
+system.cpu.numCycles                            65750                       # number of cpu cycles simulated
 sim_insts                                       16577                       # Number of instructions simulated
 2 threads
 Done
-system.cpu0.numCycles                           70739                       # number of cpu cycles simulated
-sim_insts                                       28418                       # Number of instructions simulated
+system.cpu0.numCycles                           68802                       # number of cpu cycles simulated
+sim_insts                                       36584                       # Number of instructions simulated
 4 threads
 Done
-system.cpu0.numCycles                           71873                       # number of cpu cycles simulated
-sim_insts                                       51247                       # Number of instructions simulated
+system.cpu0.numCycles                           70210                       # number of cpu cycles simulated
+sim_insts                                       71222                       # Number of instructions simulated
 m = 8
 1 threads
 Done
-system.cpu.numCycles                            72007                       # number of cpu cycles simulated
+system.cpu.numCycles                            69246                       # number of cpu cycles simulated
 sim_insts                                       25255                       # Number of instructions simulated
 2 threads
 Done
-system.cpu0.numCycles                           74371                       # number of cpu cycles simulated
-sim_insts                                       38466                       # Number of instructions simulated
+system.cpu0.numCycles                           72024                       # number of cpu cycles simulated
+sim_insts                                       46558                       # Number of instructions simulated
 4 threads
 Done
-system.cpu0.numCycles                           74709                       # number of cpu cycles simulated
-sim_insts                                       61672                       # Number of instructions simulated
 8 threads
 Done
-system.cpu0.numCycles                           77877                       # number of cpu cycles simulated
-sim_insts                                      116352                       # Number of instructions simulated
+system.cpu0.numCycles                           75830                       # number of cpu cycles simulated
+sim_insts                                      175044                       # Number of instructions simulated
 m = 16
 1 threads
 Done
-system.cpu.numCycles                           111977                       # number of cpu cycles simulated
+system.cpu.numCycles                            92759                       # number of cpu cycles simulated
 sim_insts                                       86730                       # Number of instructions simulated
 2 threads
 Done
-system.cpu0.numCycles                           97855                       # number of cpu cycles simulated
-sim_insts                                      101143                       # Number of instructions simulated
+system.cpu0.numCycles                           86637                       # number of cpu cycles simulated
+sim_insts                                      108485                       # Number of instructions simulated
 4 threads
 Done
-system.cpu0.numCycles                           89573                       # number of cpu cycles simulated
-sim_insts                                      123744                       # Number of instructions simulated
+system.cpu0.numCycles                           83467                       # number of cpu cycles simulated
+sim_insts                                      149794                       # Number of instructions simulated
 8 threads
 Done
-system.cpu0.numCycles                           88817                       # number of cpu cycles simulated
-sim_insts                                      179214                       # Number of instructions simulated
+system.cpu0.numCycles                           84207                       # number of cpu cycles simulated
+sim_insts                                      235986                       # Number of instructions simulated
 16 threads
 Done
-system.cpu00.numCycles                          95709                       # number of cpu cycles simulated
-sim_insts                                      378453                       # Number of instructions simulated
+system.cpu00.numCycles                          89939                       # number of cpu cycles simulated
+sim_insts                                      495586                       # Number of instructions simulated
 m = 32
 1 threads
 Done
-system.cpu.numCycles                           369181                       # number of cpu cycles simulated
+system.cpu.numCycles                           242006                       # number of cpu cycles simulated
 sim_insts                                      547019                       # Number of instructions simulated
 2 threads
 Done
-system.cpu0.numCycles                          239495                       # number of cpu cycles simulated
-sim_insts                                      561201                       # Number of instructions simulated
+system.cpu0.numCycles                          173093                       # number of cpu cycles simulated
+sim_insts                                      572355                       # Number of instructions simulated
 4 threads
 Done
-system.cpu0.numCycles                          173927                       # number of cpu cycles simulated
-sim_insts                                      586627                       # Number of instructions simulated
+system.cpu0.numCycles                          137461                       # number of cpu cycles simulated
+sim_insts                                      611285                       # Number of instructions simulated
 8 threads
 Done
-system.cpu0.numCycles                          144153                       # number of cpu cycles simulated
-sim_insts                                      643225                       # Number of instructions simulated
+system.cpu0.numCycles                          123291                       # number of cpu cycles simulated
+sim_insts                                      710768                       # Number of instructions simulated
 16 threads
 Done
-system.cpu00.numCycles                         135135                       # number of cpu cycles simulated
-sim_insts                                      812465                       # Number of instructions simulated
 32 threads
 Done
-system.cpu00.numCycles                         144323                       # number of cpu cycles simulated
-sim_insts                                     1405757                       # Number of instructions simulated
